@@ -18,23 +18,24 @@ layo_tim = QVBoxLayout()
 layo_sec.addLayout(layo_tim)
 timbtn = QPushButton("Таймер")
 layo_tim.addWidget(timbtn)
+time2 = QTimer()
 time = QTimer()
 sec = 0
 def update_sec():
     global sec
     sec += 1
     lb_sec.setText(str(sec))
-time.timeout.connect(update_sec)
+time2.timeout.connect(update_sec)
 def start_sec():
-    time.start(1000)  
+    time2.start(1000)  
 sbtn.clicked.connect(start_sec)
 def stop_sec():
-    time.stop()
+    time2.stop()
 stbtn.clicked.connect(stop_sec)
 def delete_sec():
     global sec
     sec *= 0
-    time.stop()
+    time2.stop()
     lb_sec.setText(str(sec))
 rebtn.clicked.connect(delete_sec)
 
